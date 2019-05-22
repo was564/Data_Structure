@@ -14,9 +14,7 @@ void order(BTreeNode *node, int n, int i);
 void preorder(BTreeNode *root);
 
 int main(){
-	int arr[11] = { 0, };
 	root = createNode(10);
-	arr[1] = 10;
 	temp = root;
 	for (int i = 2; i <= 10; i++){
 		order(root, 1, i);
