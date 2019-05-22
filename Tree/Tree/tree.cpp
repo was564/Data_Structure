@@ -19,11 +19,12 @@ int main(){
 	arr[1] = 10;
 	temp = root;
 	for (int i = 2; i <= 10; i++){
-		order(root, 0, i);
+		order(root, 1, i);
 	}
 
 	preorder(root);
 
+	system("PAUSE");
 	return 0;
 }
 
@@ -44,7 +45,7 @@ void order(BTreeNode *node, int n, int i){
 		node->right = createNode(i * 10);
 		return;
 	}
-	else if (n * 2 + 1 < i){
+	else if (n * 2 + 1 > i){
 		return;
 	}
 	order(node->left, n * 2, i);
@@ -52,11 +53,10 @@ void order(BTreeNode *node, int n, int i){
 }
 
 void preorder(BTreeNode *root) {
-	printf("%d", root->data);
-	if (root->left != nullptr){
-		preorder(root->left);
+	if (root == nullptr){
+		return;
 	}
-	else if (root->right != nullptr){
-		preorder(root->right);
-	}
+	printf("%d\n", root->data);
+	preorder(root->left);
+	preorder(root->right);
 }
